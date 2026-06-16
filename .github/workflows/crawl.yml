@@ -2,9 +2,8 @@ name: PTT MacShop 爬蟲
 
 on:
   schedule:
-    # 每 20 分鐘執行一次（UTC 時間）
-    # GitHub Actions 最小間隔為 5 分鐘，使用 3 個 cron 覆蓋 20 分鐘循環
-    - cron: "0,20,40 * * * *"
+    # 每 10 分鐘執行一次（UTC 時間）
+    - cron: "*/10 * * * *"
   workflow_dispatch: # 允許手動觸發
 
 permissions:
