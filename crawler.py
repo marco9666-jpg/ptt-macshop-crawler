@@ -16,7 +16,7 @@ STATE_FILE = Path("seen_posts.json")
 PTT_BASE = "https://www.ptt.cc"
 BOARD = "MacShop"
 KEYWORDS = [["mac mini", "m4"]]
-SELL_TAG = "[售]"
+SELL_TAGS = ["[售]", "[販售]"]
 
 SESSION = requests.Session()
 SESSION.cookies.set("over18", "1")
@@ -138,7 +138,7 @@ def match_keywords(title: str) -> bool:
 
 
 def is_sell_post(title: str) -> bool:
-    return title.startswith(SELL_TAG)
+    return any(title.startswith(tag) for tag in SELL_TAGS)
 
 
 def send_telegram(text: str):
